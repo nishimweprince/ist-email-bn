@@ -1,0 +1,37 @@
+#datasource
+spring.datasource.url=
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.hikari.schema=
+spring.jpa.properties.hibernate.dialect=
+spring.jpa.hibernate.ddl-auto=
+
+# Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=
+spring.jpa.show-sql=
+spring.jpa.properties.hibernate.format_sql=
+spring.jpa.properties.hibernate.dialect=
+
+# App Properties
+jwt.secret=
+jwt.expiration=
+
+#Serverlet
+server.servlet.context-path=
+
+# Logging
+logging.level.org.springframework.security=
+
+# Cors
+spring.mvc.cors.allowed-origins=
+spring.mvc.cors.allowed-methods=
+spring.mvc.cors.allowed-headers=
+spring.mvc.cors.allow-credentials=
+
+#Mail
+spring.mail.host=
+spring.mail.username=
+spring.mail.password=
+spring.mail.port=
+spring.mail.properties.mail.smtp.auth=
+spring.mail.properties.mail.smtp.starttls.enable=
