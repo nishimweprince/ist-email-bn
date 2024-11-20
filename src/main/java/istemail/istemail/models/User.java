@@ -1,16 +1,12 @@
 package istemail.istemail.models;
 
-import java.util.List;
-
 import istemail.istemail.enums.UserRole;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -56,9 +52,9 @@ public class User extends AbstractDomain {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    // SIGNATURES
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Signature> signatures;
+    // VERIFICATION CODE
+    @Column(name = "verification_code", nullable = true)
+    private String verificationCode;
 
     // COMPANY
     @ManyToOne

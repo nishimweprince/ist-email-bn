@@ -1,5 +1,7 @@
 package istemail.istemail.controllers;
 
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,5 +32,11 @@ public class AuthController {
     public ResponseEntity<ResponseDto> login(@RequestBody UserLoginRequestDTO userLoginRequestDTO) {
         return ResponseEntity.ok(ResponseDto.success("User logged in successfully",
                 authService.login(userLoginRequestDTO.getEmail(), userLoginRequestDTO.getPassword())));
+    }
+
+    @PostMapping("/verify")
+    public ResponseEntity<ResponseDto> verifyEmail(@RequestBody Map<String, String> request) {
+        return ResponseEntity.ok(ResponseDto.success("Email verified successfully",
+                authService.verifyEmail(request.get("email"), request.get("verificationCode"))));
     }
 }

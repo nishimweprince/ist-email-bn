@@ -28,7 +28,6 @@ public class JwtService {
     private final SecretKey jwtSecret;
 
     public String generateToken(User user) {
-        System.out.println("Generating token for user: " + user.getEmail());
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", user.getId());
         claims.put("email", user.getEmail());
@@ -38,10 +37,9 @@ public class JwtService {
         return createToken(claims, user.getEmail());
     }
 
+    @SuppressWarnings("deprecation")
     private String createToken(Map<String, Object> claims, String subject) {
         SecretKey secretKey = Keys.hmacShaKeyFor(jwtSecret.getEncoded());
-
-        System.out.println("Creating token with secret key: " + secretKey);
         
         return Jwts.builder()
             .setClaims(claims)
